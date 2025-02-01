@@ -6,7 +6,7 @@ def findPivots(matriz):
        first_line.append(matriz[0][i]) 
     
     pivot_collumn_number = first_line[0]
-
+    
     for i in range(len(first_line)):
         if pivot_collumn_number > first_line[i]:
             pivot_collumn_number = first_line[i] # searching the smallest number
@@ -93,9 +93,10 @@ def maximizarFuncao(matriz):
 
 def main():
     matriz = [
-    [1, -5, -8, 0, 0, 0],
-    [0, 1, 4, 1, 0, 8],
-    [0, 1, 1, 0, 1, 5]
+    [1, -1, -1.5, -2, 0, 0, 0, 0],
+    [0, 8,    5,   2, 1, 0, 0, 120],
+    [0, 5,   10,   4, 0, 1, 0, 400],
+    [0, 0.7,  1,   2, 0, 0, 1, 80]
     ]
 
     negative = 1
@@ -104,7 +105,35 @@ def main():
         print(f"\nInteraction {i}:")
         matriz, negative = maximizarFuncao(matriz)
         i+=1
-    print("\nNão há mais iterações\n")
+    print("\nNo more iterations\n")
+
+    nvalues = len(matriz[0])-1
+    last_collumn_values = []
+
+    for i in range(len(matriz)):
+        if i>=1:
+            last_collumn_values.append(matriz[i][nvalues])
+
+    xvalues_index = []
+    number_of_xvalues = (len(matriz[0])/2)-1
+    for i in range(len(matriz)):
+        for j in range(len(matriz[0])):
+            if j>0 and j<len(matriz[0]):
+                if j<=number_of_xvalues:
+                    if matriz[i][j]==1:
+                        xvalues_index.append(j-1) #Finding the number 1 in collumns
+
+    
+    xvalues = []
+    xvalues = [0] * int(number_of_xvalues)  
+
+    for i in range(len(xvalues_index)):
+        if xvalues_index[i] < number_of_xvalues:
+            xvalues[xvalues_index[i]] = last_collumn_values[i]
+   
+    print("Values to maximize function: ")
+    for i in range(len(xvalues)):
+        print(f"X{i+1} Value: {xvalues[i]}")
 
 if __name__ == "__main__":
     main()
