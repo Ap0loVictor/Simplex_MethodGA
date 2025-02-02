@@ -131,6 +131,10 @@ def main():
         if xvalues_index[i] < number_of_xvalues:
             xvalues[xvalues_index[i]] = last_collumn_values[i]
    
+
+    print("Z value maximized: ")
+    print(matriz[0][len(matriz[0])-1])
+
     print("Values to maximize function: ")
     for i in range(len(xvalues)):
         print(f"X{i+1} Value: {xvalues[i]}")
