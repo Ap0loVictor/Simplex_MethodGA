@@ -1,0 +1,126 @@
+Xn sempre maior que 0 nesses casos de teste
+copiem sempre o que está dentro da matriz pq tem umas com o nome diferente
+
+    - Primeira questão:
+
+Max z = x1 + 1,5x2 + 2,0x3
+Suj a:
+8x1 + 5x2 + 2x3 ≤ 120
+5x1 + 10x2 + 4x3 ≤ 400
+0,7x1 + x2 + 2x3 ≤ 80
+
+matriz = [
+    [1, -1, -1.5, -2, 0, 0, 0, 0],
+    [0, 8,    5,   2, 1, 0, 0, 120],
+    [0, 5,   10,   4, 0, 1, 0, 400],
+    [0, 0.7,  1,   2, 0, 0, 1, 80]
+]
+
+
+Valores para maximizar a função:
+Valor de X1: 10.0
+Valor de X2: 160.0
+Valor de X3: 35.0
+
+    - Segunda questão:
+
+Max z = 5x1 + 8x2
+Suj a:
+x1 + 4x2 ≤ 8
+x1 + x2 ≤ 5
+
+matriz = [
+    [1, -5, -8, 0, 0, 0],
+    [0, 1, 4, 1, 0, 8],
+    [0, 1, 1, 0, 1, 5]
+]
+
+    - Terceira questão:
+
+Max z = 110x1 + 65x2
+Suj a:
+2x1 + x2 ≤ 7
+5x1 + 7x2 ≤ 30
+
+matrixModel = [
+    [1, -110, -65, 0, 0, 0],
+    [0, 2, 1, 1, 0, 7],
+    [0, 5, 7, 0, 1, 30]
+]
+
+    - Quarta questão:     
+
+Max z = 20x1 + 35x2
+Suj a:
+x1 + x2 ≤ 12
+2x1 + 3x2 ≤ 10
+
+matrixModel = [
+    [1, -20, -35, 0, 0, 0],
+    [0, 1, 1, 1, 0, 12],
+    [0, 2, 3, 0, 1, 10]
+]
+
+
+    - Quinta questão:
+
+Max z = 120x1 + 150x2
+Suj a:
+2x1 + 4x2 ≤ 100
+3x1 + 2x2 ≤ 90
+5x1 + 3x2 ≤ 120
+
+
+matrixModel = [
+    [1, -120, -150, 0, 0, 0, 0],
+    [0,    2,    4, 1, 0, 0, 100],
+    [0,    3,    2, 0, 1, 0, 90],
+    [0,    5,    3, 1, 0, 1, 120 ]
+]
+
+
+
+    - Sexta questão:
+
+Max z = 100x1 + 150x2
+Suj a:
+2x1 + 3x2 ≤ 120
+x1 ≤ 40
+x2 ≤ 30
+
+matriz = [
+    [1, -100, -150, 0, 0, 0],
+    [0, 2, 3, 1, 1, 120]
+]
+
+    - Sétima questão:
+
+Max z = 4x1 + 3x2
+Suj a:
+2x1 + x2 ≤ 1000
+x1 + x2 ≤ 800
+x1 ≤ 400
+x2 ≤ 700
+
+matriz = [
+    [1, -4, -3, 0, 0, 0],
+    [0, 2, 1, 1, 0, 1000],
+    [0, 1, 1, 0, 1, 800]
+]
+
+
+    Oitava Questão:
+
+Min z = 8x1 + 12x2 + 15x3
+Suj a:
+x1 + 2x2 + 2x3 ≥ 5
+x1 + x2 + 1,5x3 ≥ 3
+
+Essa aqui não funciona
+
+matrixModel = [
+        Z   X1 X2   X3 XF1 XF2 XF3 XA1 XA2 XA3 B
+        [1, 8, 12,  15,  0,  0,  0,  0, 0, 0, 0],  
+        [0, 1,  2,   2,  0,  0,  0,  0, 0, 0, 5],   
+        [0, 1,  1, 1.5,  0,  0,  0,  0, 0, 0, 3]  
+]
