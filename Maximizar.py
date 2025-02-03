@@ -30,24 +30,28 @@ def findPivots(matriz):
                 last_collumn.append(matriz[i][last_index])
     
     for i in range(len(last_collumn)):
-        if last_collumn[i] != 0:
-            last_collumn[i] = last_collumn[i]/pivot_collumn[i] # Discovering the smallest number
-    #print(last_collumn)
-
+        #print(last_collumn[i])
+        if pivot_collumn[i] > 0 and last_collumn[i] != 0 and i>0:
+            last_collumn[i] = last_collumn[i]/pivot_collumn[i] # Discovering the smallest 
+        #print(f" pós if: {last_collumn[i]}")
+    
+    #print(f"Last collumn:\n{last_collumn}")
+    
     smallest_number = last_collumn[1]
     pivot_line_index = 1
     for i in range(len(last_collumn)):
-        if smallest_number > last_collumn[i] and i>1:
+        if smallest_number >= last_collumn[i] and i>1 and pivot_collumn[i]>0:
             smallest_number = last_collumn[i] # searching the smallest number
             pivot_line_index = i # Finding the pivot line index
+
 
     pivot_line = []
     for i in range(len(matriz[pivot_line_index])): # making pivot line
         pivot_line.append(matriz[pivot_line_index][i])
-    # print(f"pivot line: {pivot_line}")
+    print(f"pivot line: \n{pivot_line}\n")
     
     pivot_element = pivot_line[pivot_collumn_index] # finding pivot element
-    # print(f"pivot element: {pivot_element}")
+   
 
     return pivot_collumn , pivot_line, pivot_element,  pivot_line_index
 
@@ -58,7 +62,7 @@ def newLines(matriz):
     
     for i in range(len(piv_li)): # make a new pivot line
         new_piv_li.append(round(piv_li[i]/piv_el,3))
-    #print(new_piv_li)
+    
     other_lines = []
     new_matrix = []
 
@@ -93,12 +97,16 @@ def maximizarFuncao(matriz):
 
 def main():
     matriz = [
-    [1, -1, -1.5, -2, 0, 0, 0, 0],
-    [0, 8,    5,   2, 1, 0, 0, 120],
-    [0, 5,   10,   4, 0, 1, 0, 400],
-    [0, 0.7,  1,   2, 0, 0, 1, 80]
+    [1, -100, -150, 0, 0, 0, 0],
+    [0,    2,   3, 1, 0, 0, 120],
+    [0,    1,   0, 0, 1, 0, 40],
+    [0,    0,   1, 0, 0, 1, 30]
     ]
 
+    print("First matrix: ")
+    for i in range(len(matriz)):
+        print(matriz[i])
+    
     negative = 1
     i = 1
     while negative == 1:
@@ -122,22 +130,22 @@ def main():
                 if j<=number_of_xvalues:
                     if matriz[i][j]==1:
                         xvalues_index.append(j-1) #Finding the number 1 in collumns
-
     
     xvalues = []
     xvalues = [0] * int(number_of_xvalues)  
 
-    for i in range(len(xvalues_index)):
-        if xvalues_index[i] < number_of_xvalues:
-            xvalues[xvalues_index[i]] = last_collumn_values[i]
+    # for i in range(len(xvalues_index)):
+    #     if xvalues_index[i] < number_of_xvalues:
+    #         xvalues[xvalues_index[i]] = last_collumn_values[i]
    
-
     print("Z value maximized: ")
     print(matriz[0][len(matriz[0])-1])
 
-    print("Values to maximize function: ")
-    for i in range(len(xvalues)):
-        print(f"X{i+1} Value: {xvalues[i]}")
+    # print("Values to maximize function: ")
+    # for i in range(len(xvalues)):
+    #     print(f"X{i+1} Value: {xvalues[i]}")
 
 if __name__ == "__main__":
     main()
+
+    
